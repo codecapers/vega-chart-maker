@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 //
 // This file is designed to be run from the command line.
 // It generates a chart using Nigthmare, Data-Forge and Vega.
