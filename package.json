@@ -14,5 +14,8 @@
   },
   "keywords": [],
   "author": "ashley@codecapers.com.au",
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+      "chart-maker": "./cli.js"
+  }
 }
