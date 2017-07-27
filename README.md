@@ -30,6 +30,7 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 ## Usage
 
     const chartMaker = require('./index');
+    
     var inputFilePath = "your-input-file.csv";
     var outputFilePath = "your-chart-output-file.png";
     var xAxisField = "CSV-column-name-for-x-axis";
@@ -46,6 +47,7 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 
 ## TODO
 
+    Allow vega or vega lite.
     Need to be able to merge multiple csv files.
     Input vega template from an external JSON file.
     Input width/height on command line.
