@@ -15,11 +15,11 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 
 ### Usage
 
-    chart-maker <input-file> --x=<x-axis-field> --y=<y-axis-field> --out=<output-image-file>
+    chart-maker <input-file> --chart=<vega-chart-file> --out=<output-image-file>
 
 ### Example
 
-    chart-maker myspreadsheet.csv --x=field1 --y=field2 --out=mychart.png
+    chart-maker myspreadsheet.csv --x=mychartspec.json --out=mychart.png
 
 ## Use as a code library
 
@@ -32,11 +32,10 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
     const chartMaker = require('./index');
     
     var inputFilePath = "your-input-file.csv";
+    var chartTemplateFilePath = "my-chart-spec.json";
     var outputFilePath = "your-chart-output-file.png";
-    var xAxisField = "CSV-column-name-for-x-axis";
-    var yAxisField = "CSV-column-name-for-y-axis";
 
-    chartMaker(inputFilePath, xAxisField, yAxisField, outputFilePath)
+    chartMaker(inputFilePath, chartTemplateFilePath, outputFilePath)
         .then(() => { 
             console.log('Done');
         })
