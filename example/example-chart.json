@@ -1,0 +1,19 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v2.0.json",
+    "width": 600,
+    "height": 600,
+    "mark": "line",
+    "encoding": {
+        "x": {
+            "field": "Date",
+            "type": "temporal"
+        },
+        "y": {
+            "field": "Close",
+            "type": "quantitative",
+            "scale": {
+                "zero": false
+            }
+        }
+    }
+}
