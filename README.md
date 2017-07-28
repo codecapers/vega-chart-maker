@@ -1,11 +1,11 @@
 # Chart-maker
 
-A Node.js module for rendering a chart from a CSV file using the [Vega-Lite](https://vega.github.io/vega-lite/) visualization grammar.
+A Node.js module for rendering a chart from a CSV file using the [Vega-Lite](https://vega.github.io/vega-lite/) or [Vega](https://vega.github.io/vega) visualization grammar.
 
 It can be used from the command line or as a code library.
 It's a great way to render server-side charts.
 
-This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http://www.nightmarejs.org/) and [Vega](https://vega.github.io/vega-lite/).
+This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http://www.nightmarejs.org/) and [Vega](https://vega.github.io/vega).
 
 ## Use from command line
 
