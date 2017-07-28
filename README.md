@@ -47,8 +47,4 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 
 ## TODO
 
-    Allow vega or vega lite.
     Need to be able to merge multiple csv files.
-    Input vega template from an external JSON file.
-    Input width/height on command line.
-    Input vega schema on command line (maybe).

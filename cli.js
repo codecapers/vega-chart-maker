@@ -13,7 +13,12 @@ if (argv._.length < 1) {
     console.error("Please specify input file on command line.");
 
     console.log("Usage:");
-    console.log("  chart-maker <input-file.csv> --x=<x-axis-field> --y=<y-axis-field> --out=<output-image-file.png>");
+    console.log("  chart-maker <input-file.csv> --chart=<chart-template-file> --out=<output-image-file.png>");
+    process.exit(1);
+}
+
+if (!argv.chart) {
+    console.error("Please specify chart template file with parameter --chart=<chart-template-file>");
     process.exit(1);
 }
 
@@ -22,22 +27,11 @@ if (!argv.out) {
     process.exit(1);
 }
 
-if (!argv.x) {
-    console.error("Please specify x axis field with parameter --x=<field-name>");
-    process.exit(1);
-}
+var inputFilePath = argv._[0].toString();
+var chartTemplateFilePath = argv.chart.toString();
+var outputFilePath = argv.out.toString();
 
-if (!argv.y) {
-    console.error("Please specify y axis field with parameter --y=<field-name>");
-    process.exit(1);
-}
-
-var inputFilePath = argv._[0];
-var outputFilePath = argv.out;
-var xAxisField = argv.x;
-var yAxisField = argv.y;
-
-chartMaker(inputFilePath, xAxisField, yAxisField, outputFilePath)
+chartMaker(inputFilePath, chartTemplateFilePath, outputFilePath)
     .then(() => { 
         console.log('Done');
     })

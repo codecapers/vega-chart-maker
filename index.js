@@ -5,16 +5,20 @@
 // Parameters:
 //
 //      inputFilePath -     The input CSV file to load.
-//      xAxisField -        The column in the CSV file to use for the chart's x axis.
-//      yAxisField -        The column in the CSV file to use for the chart's y axis.
+//      chartTemplateFile - Path to a vega spec file.
 //      outputFilePath -    Path that specifies where to save the chart's output image.
 //
 
 const Nightmare = require('nightmare');
 const dataForge = require('data-forge');
 const path = require('path');
+const assert = require('chai').assert;
+const fs = require('fs');
 
-module.exports = function (inputFilePath, xAxisField, yAxisField, outputFilePath) {
+module.exports = function (inputFilePath, chartTemplateFilePath, outputFilePath) {
+    assert.isString(inputFilePath, "chart-maker: Expected parameter inputFilePath to be a string.");
+    assert.isString(chartTemplateFilePath, "chart-maker: Expected parameter chartTemplateFilePath to be a string.");
+    assert.isString(outputFilePath, "chart-maker: Expected parameter outputFilePath to be a string.");
 
     var dataFrame = dataForge.readFileSync(inputFilePath)
         .parseCSV();
@@ -27,17 +31,13 @@ module.exports = function (inputFilePath, xAxisField, yAxisField, outputFilePath
     var url = 'file://' + filePath;
     var selector = '#view canvas';
 
-    var chart = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v2.0.json",
-        "data": {
-            "values": dataFrame.toArray(),
-        },
-        "mark": "line",
-        "encoding": {
-            "x": { "field": xAxisField, "type": "ordinal" },
-            "y": { "field": yAxisField, "type": "quantitative" }
-        }
-    };
+    var chart = JSON.parse(fs.readFileSync(chartTemplateFilePath, 'utf-8'));
+
+    if (!chart.data) {
+        chart.data = {};
+    }
+
+    chart.data.values = dataFrame.toArray();
 
     return nightmare
         .goto(url)
@@ -62,6 +62,6 @@ module.exports = function (inputFilePath, xAxisField, yAxisField, outputFilePath
             return nightmare.viewport(rect.bodyWidth, rect.bodyHeight)
                 .screenshot(outputFilePath, rect);
         })
-        .then(() => nightmare.screenshot("whole-page.png"))
+        //.then(() => nightmare.screenshot("whole-page.png"))
         .then(() => nightmare.end());
 };

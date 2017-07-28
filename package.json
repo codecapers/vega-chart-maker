@@ -1,6 +1,6 @@
 {
   "name": "chart-maker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Node.js module for rendering a chart from a CSV file using the Vega visualization grammar.",
   "homepage": "https://github.com/codecapers/chart-maker",
   "repository": {
@@ -9,6 +9,7 @@
   },
   "main": "index.js",
   "dependencies": {
+    "chai": "4.1.0",
     "data-forge": "0.5.3",
     "nightmare": "2.10.0",
     "yargs": "8.0.2"
@@ -18,13 +19,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-      "chart",
-      "visualization",
-      "graph"
+    "chart",
+    "visualization",
+    "graph"
   ],
   "author": "ashley@codecapers.com.au",
   "license": "MIT",
   "bin": {
-      "chart-maker": "./cli.js"
+    "chart-maker": "./cli.js"
   }
 }
