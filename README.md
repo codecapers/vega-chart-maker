@@ -29,7 +29,7 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 
 ## Usage
 
-    const chartMaker = require('./index');
+    const chartMaker = require('chart-maker');
     
     var inputFilePath = "your-input-file.csv";
     var chartTemplateFilePath = "my-chart-spec.json";
