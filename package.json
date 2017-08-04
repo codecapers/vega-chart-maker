@@ -1,6 +1,6 @@
 {
   "name": "chart-maker",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A Node.js module for rendering a chart from a CSV file using the Vega visualization grammar.",
   "homepage": "https://github.com/codecapers/chart-maker",
   "repository": {

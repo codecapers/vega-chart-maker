@@ -11,7 +11,8 @@ const chartMaker = require('./index');
 
 if (argv.v || argv.version) {
     var fs = require('fs');
-    console.log('chart-maker version ' + JSON.parse(fs.readFileSync('./package.json')).version);
+    var path = require('path');
+    console.log('chart-maker version ' + JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'))).version);
     process.exit(0);
 }
 
