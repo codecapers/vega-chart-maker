@@ -19,7 +19,7 @@ This library uses [Data-Forge](http://www.data-forge-js.com/), [Nightmare](http:
 
 ### Example
 
-    chart-maker myspreadsheet.csv --x=mychartspec.json --out=mychart.png
+    chart-maker myspreadsheet.csv --chart=mychartspec.json --out=mychart.png
 
 ## Use as a code library
 
